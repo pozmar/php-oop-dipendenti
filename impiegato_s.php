@@ -4,6 +4,9 @@ class ImpiegatoSalariato extends Impiegato{
     protected $compenso_giornaliero;
     public function __construct($nome, $cognome, $codice_fiscale, $codice_impiegato, $giorni_lavorati, $compenso_giornaliero){
         parent::__construct($nome, $cognome, $codice_fiscale, $codice_impiegato);
+        if($compenso_giornaliero < 20){
+            throw new Exception ("Il numero inserito potrebbe essere sbagliato");
+        }
         $this->giorni_lavorati = $giorni_lavorati;
         $this->compenso_giornaliero = $compenso_giornaliero;
     }

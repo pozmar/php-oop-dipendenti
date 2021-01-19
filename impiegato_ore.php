@@ -4,6 +4,9 @@ class ImpiegatoAOre extends Impiegato{
     protected $compenso_orario;
     public function __construct($nome, $cognome, $codice_fiscale, $codice_impiegato, $ore_lavorate, $compenso_orario){
         parent::__construct($nome, $cognome, $codice_fiscale, $codice_impiegato);
+        if($compenso_orario < 5){
+            throw new Exception ("Il numero inserito è troppo piccolo");
+        }
         $this->ore_lavorate = $ore_lavorate;
         $this->compenso_orario = $compenso_orario;
     }

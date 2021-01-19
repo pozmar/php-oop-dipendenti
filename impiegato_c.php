@@ -7,8 +7,8 @@ class ImpiegatoSuCommissione extends Impiegato{
     use Progetto;
     public function __construct($nome, $cognome, $codice_fiscale, $codice_impiegato, $nome_progetto, $commissione){
         parent::__construct($nome, $cognome, $codice_fiscale, $codice_impiegato);
-        if(!is_string($nome)|| ($cognome)){
-            throw new Exception("Non è stata inserita una stringa");
+        if($commissione == 0){
+            throw new Exception("La commissione deve avere un costo");
         }
         $this->nome_progetto = $nome_progetto;
         $this->commissione = $commissione;
